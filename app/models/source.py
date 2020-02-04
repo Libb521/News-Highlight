@@ -9,6 +9,5 @@ class Source:
         self.description = description
         self.url = url
         self.category = category
-        self.poster = 'https://image.tmdb.org/t/p/w500/'+ poster
         self.country = country
         self.language = language
