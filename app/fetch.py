@@ -27,3 +27,29 @@ def get_sources(category):
 		source_results = process_sources(source_results_list)
 
 	return source_results
+
+def process_sources(source_list):
+	'''
+	This function processes the news sources results and turns them into a list of objects
+	Args:
+		sources_list: A list of dictionaries that contain sources details
+	Returns:
+		sources_results: A list of sources objects
+	'''
+	source_results = []
+
+	for source_item in source_list:
+		id = source_item.get('id') 
+		name = source_item.get('name')
+		description = source_item.get('description')
+		url = source_item.get('url')
+		category = source_item.get('category')
+		language = source_item.get('language')
+		country = source_item.get('country')
+
+    if category:
+		source_object = Source(id,name,description,url,category,country,language)
+		source_results.append(source_object)
+
+
+	return source_results
