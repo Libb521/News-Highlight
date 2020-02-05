@@ -47,9 +47,9 @@ def process_sources(source_list):
 		language = source_item.get('language')
 		country = source_item.get('country')
 
-    if category:
-		source_object = Source(id,name,description,url,category,country,language)
-		source_results.append(source_object)
+    # if category:
+	source_object = Source(id,name,description,url,category,country,language)
+	source_results.append(source_object)
 
 
 	return source_results
