@@ -1,4 +1,10 @@
 {% extends 'base.html'%}
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/movie.css')}}">
+{% endblock %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +14,7 @@
     {% if title %}
     <title> {{ title }}</title>
     {% else %}
-    <title> FOR THE LATEST AND NEWEST NEWS ARTICLES </title>
+    <title> WELCOME TO NEWS APP </title>
     {% endif %}
 </head>
 <body>
