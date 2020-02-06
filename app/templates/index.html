@@ -1,37 +1,27 @@
-<!-- {% extends 'news.html'%} -->
+{% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if title %}
         <title> {{ title }}</title>
         {% else %}
-        <title> For The Latest and Newest News Articles</title>
+        <title> FOR THE LATEST AND NEWEST NEWS ARTICLES </title>
         {% endif %}
-    </head>
-    <body>
-
-        {% block content %}
-        <!-- Popular news section  -->
-        <h3> Popular News</h3>
-         <ul>
-                {{ macro.displaySourceList(sources) }}
-        </ul>
-        <h3> Upcoming News </h3>
-         <ul>
-            
-                {{ macro.displaySourceList(upcoming)}}
-         
-        </ul>
-        <!-- Now showing movie -->
-        <h3>Current News</h3>
-        <ul>
-
-                <li>{{ macro.displaySourceList(current)}}</li>
-        </ul>
-                {% endblock %}
-
-    </body>
+</head>
+<body>
+    <h1> {{message}} </h1>
+    {% block content%}
+    <div class="container">
+        
+            <h1>NEWS</h1>
+            <hr>
+            {{ macro.displaySourceList(sources)}}
+    </div>
+    {%endblock%}
+</body>
 </html>

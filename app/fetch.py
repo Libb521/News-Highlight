@@ -1,14 +1,18 @@
 from app import app
 import urllib.request,json
-from .models import source
+from .models import source,articles
 
 Source = source.Source
+Article = articles.Article
 
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
 
+# Getting the source base url
+base_url = app.config["NEWS_API_BASE_URL"]
 
-base_url = app.config['NEWS_API_BASE_URL']
+articles_url = app.config['ARTICLES_BASE_URL']
+
 
 def get_sources(category):
 	'''
@@ -28,14 +32,9 @@ def get_sources(category):
 
 	return source_results
 
+
 def process_sources(source_list):
-	'''
-	This function processes the news sources results and turns them into a list of objects
-	Args:
-		sources_list: A list of dictionaries that contain sources details
-	Returns:
-		sources_results: A list of sources objects
-	'''
+	
 	source_results = []
 
 	for source_item in source_list:
@@ -48,8 +47,42 @@ def process_sources(source_list):
 		country = source_item.get('country')
 
     # if category:
-	source_object = Source(id,name,description,url,category,country,language)
-	source_results.append(source_object)
+		source_object = Source(id,name,description,url,category,country,language)
+		source_results.append(source_object)
 
 
 	return source_results
+
+def get_articles(id):
+	'''
+	Function that processes the articles and returns a list of articles objects
+	'''
+	get_articles_url = articles_url.format(id,api_key)
+
+	with urllib.request.urlopen(get_articles_url) as url:
+		articles_results = json.loads(url.read())
+
+
+		articles_object = None
+		if articles_results['articles']:
+			articles_object = process_articles(articles_results['articles'])
+
+	return articles_object
+
+def process_articles(articles_list):
+	'''
+	'''
+	articles_object = []
+	for article_item in articles_list:
+		id = article_item.get('id')
+		author = article_item.get('author')
+		title = article_item.get('title')
+		description = article_item.get('description')
+		url = article_item.get('url')
+		image = article_item.get('urlToImage')
+		date = article_item.get('publishedAt')
+		
+		if image:
+			articles_results = Article(id,author,title,description,url,image,date)
+			articles_object.append(articles_results)	
+	return articles_object
