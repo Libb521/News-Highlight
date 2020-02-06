@@ -1,18 +1,33 @@
 {% macro displaySourceList(source_list) %}
 	        	
-            {% for sources in source_list %}
+			{% for sources in source_list %}
+			<li style="font-weight: 900; color: rgb(255, 0, 0);"> {{sources.title}}</li>
             
-	            <div class="col-xs-12 col-sm-4">
+	            <!-- <div class="col-md-3">
 		           
 		            <div class="card-default">
-						<div class="card-heading">
+
+						<div class="card-body">
+								<h3 class="card-title" style="font-size: bolder; color: rgb(241, 95, 11); background-color: black;">{{ sources.name}}</h3>
+								<p class="card-text">{{ sources.description |truncate(100)}}</p>
+							<a href="/sources/{{sources.id}}" class="btn btn-primary btn-sm">Check {{sources.name}}</a>
+						</div>
+						
+		
+					</div>
+				</div> -->
+				
+				<div class="col-xs-12 col-sm-4">
+		           
+		            <div class="panel panel-default">
+						<div class="panel-heading">
 							<a href="/sources/{{sources.id}}">
 							    {{ sources.name}}
 					        </a>
 						</div>
-						<div class="card-body">
+						<div class="panel-body">
 								<p>{{ sources.description |truncate(100)}}</p>
-							<a href="/sources/{{sources.id}}" class="btn btn-default btn-sm">Check {{sources.name}}</a>
+							<a href="/sources/{{sources.id}}" class="btn btn-primary btn-sm">Check {{sources.name}}</a>
 						</div>
 						
 		

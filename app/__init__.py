@@ -13,3 +13,4 @@ bootstrap = Bootstrap(app)
 # bootstrap.init_app(app)
 
 from app import views
+from app import error

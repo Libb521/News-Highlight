@@ -6,10 +6,13 @@
 {% block styles%}
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
-<!-- Content block -->
+<styles>
 
-<!DOCTYPE html>
+</styles>
+    {% endblock %}
+Content block -->
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,12 +27,26 @@
 <body>
     <h1> {{message}} </h1>
     {% block content%}
+
+    
+
+    <hr>
     <div class="container">
         
-            <h1>FOR THE LATEST AND NEWEST NEWS ARTICLES</h1>
+            <h1 style="text-align: center; color: rgb(255, 94, 0); text-decoration: underline; font-weight: bolder; background-color: black;">FOR THE LATEST AND NEWEST NEWS ARTICLES</h1>
             <hr>
+            <hr>
+
+            <div class="container">
+                <form>
+                    <input type="text" name="source_query" placeholder="For your trending news" class="form-control">
+                    <input type="submit"  value="Search" class="btn btn-primary btn-sm">
+                </form>
+            
+            </div>
             {{ macro.displaySourceList(sources)}}
     </div>
     {%endblock%}
 </body>
 </html>
+
