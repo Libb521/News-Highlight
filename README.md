@@ -1,4 +1,4 @@
-# [News Highlight App](url)
+# [News Highlight App](https://greatnews02.herokuapp.com/)
 
 ## Creator
 Elizabeth Ayiemba Otieno
