@@ -25,7 +25,7 @@ The application enables users to:-
 - code text  Editor
 
 ### CODEBEAT  
-[]
+[![codebeat badge](https://codebeat.co/badges/b20b3cb8-f1d7-4973-82ce-87e399bb6556)](https://codebeat.co/projects/github-com-libb521-news-highlight-master)
 
 ## Technologies Used
 
